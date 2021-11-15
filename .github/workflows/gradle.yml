@@ -1,0 +1,17 @@
+name: gradle
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: git clone https://github.com/maxim-lobanov/runner-test-repo.git .
+      - run: |
+          cd gradle
+          export wrapperScript=$(pwd)
+
+          echo $wrapperScript
+          grep -v distributionUrl gradle/wrapper/gradle-wrapper.properties > /tmp/gradle-wrapper.properties
+          echo distributionUrl=https\\://services.gradle.org/distributions/gradle-5.4.1-all.zip >> /tmp/gradle-wrapper.properties
+          cp /tmp/gradle-wrapper.properties gradle/wrapper/gradle-wrapper.properties
+          ./gradlew build
