@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: git clone https://github.com/maxim-lobanov/runner-test-repo.git .
       - run: |
-          python python/python-default/simple_app.py
+          python python/simple_app.py
       - run: |
           pipx --version
           pipx install pycowsay

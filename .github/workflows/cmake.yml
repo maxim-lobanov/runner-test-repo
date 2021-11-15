@@ -7,6 +7,9 @@ jobs:
     steps:
       - run: git clone https://github.com/maxim-lobanov/runner-test-repo.git .
       - run: |
+          which cmake
+          cmake --version
+      - run: |
           cd cmake/testfiles
           cmake -DCMAKE_SHELL=false -DTEST_ONE=one;two -DTEST_TWO=/one/two/three -DTEST_WIN_VARIABLE=test -DTEST_VARIABLE=test
       - run: |

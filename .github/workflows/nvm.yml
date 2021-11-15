@@ -10,6 +10,7 @@ jobs:
           cd node
           npm config delete prefix
           . ~/.nvm/nvm.sh
+          nvm install 14
           nvm use 14
           npm install
           npm start

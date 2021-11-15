@@ -11,7 +11,7 @@ jobs:
           rustc hello.rs
           ./hello
       - run: |
-          rustup install nightly | Out-Null
+          rustup install nightly
           rustup show
       - run: |
           pwsh rust/scripts/cargo.ps1

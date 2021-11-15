@@ -8,4 +8,4 @@ jobs:
     - run: git clone https://github.com/maxim-lobanov/runner-test-repo.git .
     - run: |
         cd Kotlin
-        ./Kotlin/gradlew assemble
+        ./gradlew assemble
