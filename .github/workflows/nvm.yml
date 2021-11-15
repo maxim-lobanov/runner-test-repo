@@ -5,6 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: git clone https://github.com/maxim-lobanov/runner-test-repo.git .
       - run: |
           cd node
           npm config delete prefix
