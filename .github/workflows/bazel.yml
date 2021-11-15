@@ -1,0 +1,15 @@
+name: bazel
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cd bazel
+          bazelisk build //main:hello-world
+          if ($LASTEXITCODE -ne 0) {
+            Write-Output "Bazel test failed (exit code: $LASTEXITCODE)"
+            exit $LASTEXITCODE
+          }
+        shell: pwsh

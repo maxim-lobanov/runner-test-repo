@@ -1,0 +1,35 @@
+steps:
+- task: PowerShell@2
+  displayName: 'Run sample collection'
+  inputs:
+    targetType: inline
+    script: |
+        newman run sample-collection.json
+    workingDirectory: $(Build.SourcesDirectory)/src/newman/src
+
+- task: PowerShell@2
+  displayName: 'Run collection from Cloud API'
+  inputs:
+    targetType: inline
+    script: |
+        
+        $remoteCollectionUrl = "https://www.getpostman.com/collections/54b91de1f0adde17d397"
+        $outputFile = "./cloudApiCollection.json"
+
+        newman run $remoteCollectionUrl -r json --reporter-json-export $outputFile -x
+        if (-not (Test-Path $outputFile))
+        {
+          Write-Host "Missing report output"
+          exit 1
+        }
+
+        Get-Content $outputFile
+    workingDirectory: $(Build.SourcesDirectory)/src/newman/src
+
+- task: PowerShell@2
+  displayName: 'Run sample upload'
+  inputs:
+    targetType: inline
+    script: |
+        newman run upload-sample.json
+    workingDirectory: $(Build.SourcesDirectory)/src/newman/src

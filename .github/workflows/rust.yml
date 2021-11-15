@@ -1,0 +1,16 @@
+name: rust
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cd rust/src
+          rustc hello.rs
+          ./hello
+      - run: |
+          rustup install nightly | Out-Null
+          rustup show
+      - run: |
+          pwsh rust/scripts/cargo.ps1

@@ -1,0 +1,20 @@
+name: node
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cd node-typescript
+          npm install
+          npm test
+
+      - run: |
+          git clone https://github.com/maxim-lobanov/setup-xcode.git
+          ls -la
+          cd setup-xcode
+          npm install
+          npm run build
+          npm run test
+          npm run lint

@@ -1,0 +1,13 @@
+name: go
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cd go/go-web-app
+          go get -d
+      - run: |
+          cd go/go-web-app
+          go build

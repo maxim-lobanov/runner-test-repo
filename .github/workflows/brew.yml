@@ -1,0 +1,20 @@
+name: brew
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          set -e
+          brew info
+          brew list --formula
+      - run: |
+          set -e
+          echo Trying brew install without update - brew install wget
+          brew install wget
+      - run: |
+          set -e
+          brew update
+          brew install hello
+          brew list --formula

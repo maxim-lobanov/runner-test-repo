@@ -1,0 +1,13 @@
+name: python
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          python python/python-default/simple_app.py
+      - run: |
+          pipx --version
+          pipx install pycowsay
+          pycowsay hello

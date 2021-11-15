@@ -1,0 +1,12 @@
+name: vcpkg
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cd vcpkg/sample
+          vcpkg install ("sqlite3:" + "${{ parameters.platform }}")
+          vcpkg integrate install
+          cmake ("-DCMAKE_TOOLCHAIN_FILE=" + "/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake") ("-DVCPKG_TARGET_TRIPLET=" + "x64-linux") .

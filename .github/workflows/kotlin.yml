@@ -1,0 +1,10 @@
+name: kotlin
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        cd Kotlin
+        ./Kotlin/gradlew assemble

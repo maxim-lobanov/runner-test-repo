@@ -1,0 +1,10 @@
+steps:
+- task: PowerShell@2
+  displayName: vcpkg test
+  inputs:
+    targetType: inline
+    script: |
+      vcpkg install ("sqlite3:" + "${{ parameters.platform }}")
+      vcpkg integrate install
+      cmake ("-DCMAKE_TOOLCHAIN_FILE=" + "${{ parameters.vcpkgpath }}") ("-DVCPKG_TARGET_TRIPLET=" + "${{ parameters.platform }}") .
+    workingDirectory: src/vcpkg/sample

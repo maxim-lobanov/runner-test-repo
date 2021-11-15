@@ -1,0 +1,14 @@
+name: chrome
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        cd chrome-driver
+        pip3 install selenium
+        python python-test.py
+    - run: |
+        cd chrome-driver/java
+        mvn install

@@ -1,0 +1,13 @@
+name: newman
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cd newman/src
+          newman run sample-collection.json
+          newman run upload-sample.json
+
+

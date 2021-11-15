@@ -1,0 +1,9 @@
+steps:
+- powershell: |
+    bazelisk build //main:hello-world
+    if ($LASTEXITCODE -ne 0) {
+      Write-Output "Bazel test failed (exit code: $LASTEXITCODE)"
+      exit $LASTEXITCODE
+    }
+  workingDirectory: src/bazel
+  displayName: 'Bazelisk test'
