@@ -1,0 +1,13 @@
+name: 7zip+powershell
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ${{ secrets.RUNNERLABEL }}
+    steps:
+      - run: |
+          New-Item -Name "test.txt"
+           7z a test.7z test.txt
+           Remove-Item "test.txt"
+           7z e test.7z
+        shell: pwsh
