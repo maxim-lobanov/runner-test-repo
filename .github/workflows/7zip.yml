@@ -15,3 +15,4 @@ jobs:
           New-Item -Name "test2.txt"
           zstd --rm test2.txt
           zstd -d test2.txt.zst
+        shell: pwsh
