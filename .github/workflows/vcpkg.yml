@@ -11,3 +11,4 @@ jobs:
           vcpkg install ("sqlite3:x64-linux")
           vcpkg integrate install
           cmake ("-DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake") ("-DVCPKG_TARGET_TRIPLET=x64-linux") .
+        shell: pwsh

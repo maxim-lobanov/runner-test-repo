@@ -8,6 +8,5 @@ jobs:
     - run: git clone https://github.com/maxim-lobanov/runner-test-repo.git .
     - run: |
         cd kotlin/sample
-        ./gradlew assemble
         kotlinc App.kt -include-runtime -d App.jar
         java -jar App.jar

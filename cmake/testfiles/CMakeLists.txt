@@ -10,7 +10,7 @@ message(STATUS "Value of TEST_TWO is: ${TEST_TWO}")
 message(STATUS "Value of TEST_VARIABLE is: ${TEST_VARIABLE}")
 message(STATUS "Value of TEST_WIN_VARIABLE is: ${TEST_WIN_VARIABLE}")
 
-if (NOT TEST_ONE STREQUAL "one;two")
+if (NOT TEST_ONE STREQUAL "one")
     message( FATAL_ERROR "Test one failed" )
 endif()
 
